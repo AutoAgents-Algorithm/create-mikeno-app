@@ -1,0 +1,31 @@
+# 自定义项目名称，影响镜像命名
+name: atlas
+
+services:
+  # 前后端一体化服务
+  app:
+    build:
+      context: ../web
+      dockerfile: ../docker/Dockerfile
+    container_name: atlas
+    ports:
+      - "3100:3100"  # 前端端口
+      - "8100:8100"  # 后端端口
+    environment:
+      - NODE_ENV=production
+      - PYTHONPATH=/app/web/backend
+      - NEXT_PUBLIC_API_URL=https://atlas-backend.agentspro.cn
+      - CORS_ORIGINS=https://atlas.agentspro.cn,http://45.78.224.30:3100,http://localhost:3100,http://127.0.0.1:3100
+    volumes:
+      - ../assets:/app/assets:ro
+    restart: unless-stopped
+    networks:
+      - atlas-network
+
+networks:
+  atlas-network:
+    driver: bridge
+
+volumes:
+  backend_data:
+    driver: local

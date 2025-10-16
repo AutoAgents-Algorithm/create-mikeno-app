@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist/renderer",
+    "rootDir": "./renderer",
+    "lib": ["ES2020", "DOM"]
+  },
+  "include": ["renderer/**/*"]
+}
+

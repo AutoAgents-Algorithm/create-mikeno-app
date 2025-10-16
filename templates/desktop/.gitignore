@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+web/frontend/node_modules/
+electron/node_modules/
+
+# Build outputs
+web/frontend/.next/
+web/frontend/out/
+electron/dist/
+electron/release/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing
+coverage/
+.pytest_cache/
+

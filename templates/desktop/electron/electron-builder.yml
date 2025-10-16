@@ -1,0 +1,117 @@
+# electron-builder configuration file (alternative to package.json)
+# You can use this file instead of the "build" section in package.json
+
+appId: com.mikeno.app
+productName: Mikeno
+copyright: Copyright © 2024 ${author}
+
+directories:
+  output: release
+  buildResources: resources
+
+files:
+  - dist/**/*
+  - package.json
+  - '!**/{.DS_Store,.git,.gitignore,.vscode,docs,node_modules,src,tsconfig*.json}'
+
+extraResources:
+  - from: resources/
+    to: resources
+    filter:
+      - '**/*'
+
+# macOS configuration
+mac:
+  target:
+    - target: dmg
+      arch:
+        - x64
+        - arm64
+        - universal
+    - target: zip
+      arch:
+        - x64
+        - arm64
+        - universal
+  category: public.app-category.productivity
+  icon: resources/icon.icns
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  entitlements: resources/entitlements.mac.plist
+  entitlementsInherit: resources/entitlements.mac.plist
+  darkModeSupport: true
+
+dmg:
+  contents:
+    - x: 130
+      y: 220
+    - x: 410
+      y: 220
+      type: link
+      path: /Applications
+  window:
+    width: 540
+    height: 380
+
+# Windows configuration
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+        - ia32
+    - target: zip
+      arch:
+        - x64
+        - ia32
+  icon: resources/icon.ico
+  artifactName: ${productName}-Setup-${version}.${ext}
+  verifyUpdateCodeSignature: false
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  deleteAppDataOnUninstall: false
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Mikeno
+  installerIcon: resources/icon.ico
+  uninstallerIcon: resources/icon.ico
+
+# Linux configuration
+linux:
+  target:
+    - target: AppImage
+      arch:
+        - x64
+        - arm64
+    - target: deb
+      arch:
+        - x64
+        - arm64
+    - target: rpm
+      arch:
+        - x64
+        - arm64
+  icon: resources/icons/
+  category: Development
+  maintainer: Mikeno Team <team@mikeno.app>
+  vendor: Mikeno
+  synopsis: Mikeno Desktop Application
+  description: A powerful desktop application built with Electron
+
+appImage:
+  license: LICENSE
+
+# Publishing configuration (for auto-updates)
+publish:
+  provider: github
+  owner: mikeno
+  repo: mikeno
+  releaseType: release
+
+# Compression
+compression: maximum
+artifactName: ${productName}-${version}-${os}-${arch}.${ext}
+

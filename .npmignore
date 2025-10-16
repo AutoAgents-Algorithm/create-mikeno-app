@@ -1,0 +1,6 @@
+test-project/
+.git/
+.gitignore
+*.log
+.DS_Store
+

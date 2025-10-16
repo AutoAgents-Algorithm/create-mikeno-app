@@ -1,0 +1,40 @@
+{
+  "name": "create-mikeno-app",
+  "version": "1.0.1",
+  "description": "Create Mikeno apps with a single command - Electron Desktop or Web templates",
+  "type": "module",
+  "bin": {
+    "create-mikeno-app": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node bin/cli.js test-project --template desktop"
+  },
+  "keywords": [
+    "mikeno",
+    "electron",
+    "nextjs",
+    "python",
+    "fastapi",
+    "desktop",
+    "web",
+    "scaffolding",
+    "cli",
+    "create-app"
+  ],
+  "author": "Hehua Fan",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^11.1.0",
+    "inquirer": "^9.2.12",
+    "ora": "^7.0.1",
+    "fs-extra": "^11.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hehua-Fan/create-mikeno-app.git"
+  }
+}

@@ -1,0 +1,7 @@
+# FastAPI核心依赖
+fastapi
+uvicorn
+pydantic
+
+# PyInstaller for building executables
+pyinstaller
